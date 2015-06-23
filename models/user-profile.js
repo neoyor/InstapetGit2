@@ -1,3 +1,5 @@
+'use strict';
+
 var UserProfileModel = function(cnf) {
     this.email = cnf.email,
     this.firstName = cnf.firstName,

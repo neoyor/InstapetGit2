@@ -1,4 +1,6 @@
-﻿var AccountController = function (userModel, session, mailer) {
+﻿'use strict';
+
+var AccountController = function (userModel, session, mailer) {
 
     this.crypto = require('crypto');
     this.uuid = require('node-uuid');
