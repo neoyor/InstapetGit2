@@ -41,7 +41,7 @@ AccountController.prototype.logon = function(email, password, callback) {
 
             me.hashPassword(password, user.passwordSalt, function (err, passwordHash) {
 
-                if (passwordHash == user.passwordHash) {
+                if (passwordHash === user.passwordHash) {
 
                     var userProfileModel = new me.UserProfileModel({
                         email: user.email,
@@ -68,7 +68,9 @@ AccountController.prototype.logon = function(email, password, callback) {
 };
 
 AccountController.prototype.logoff = function () {
-    if (this.session.userProfileModel) delete this.session.userProfileModel;
+    if (this.session.userProfileModel){
+		delete this.session.userProfileModel;
+	}
     return;
 };
 
@@ -133,7 +135,7 @@ AccountController.prototype.resetPassword = function (email, callback) {
         } else {
             return callback(err, new me.ApiResponse({ success: false, extras: { msg: me.ApiMessages.EMAIL_NOT_FOUND } }));
         }        
-    })
+    });
 };
 
 AccountController.prototype.resetPasswordFinal = function (email, newPassword, passwordResetHash, callback) {
