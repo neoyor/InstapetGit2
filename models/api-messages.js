@@ -1,3 +1,5 @@
+'use strict';
+
 var ApiMessages = function () { };
 ApiMessages.EMAIL_NOT_FOUND = 0;
 ApiMessages.INVALID_PWD = 1;
